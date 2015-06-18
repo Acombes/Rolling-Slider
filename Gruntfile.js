@@ -25,7 +25,20 @@ module.exports = function (grunt) {
             },
             lib: {
                 files: {
-                    'src/scripts/rolling-slider.min.js': 'src/scripts/rolling-slider.js'
+                    'src/scripts/rolling-slider.min.js': 'src/scripts/rolling-slider.js',
+                    'src/scripts/rolling-slider-vanilla.min.js': 'src/scripts/rolling-slider-vanilla.js'
+                }
+            }
+        },
+        watch: {
+            /*options: {
+                livereload: true
+            },*/
+            scss: {
+                files: ['**/*.scss'],
+                task: ['sass'],
+                options: {
+                    spawn: false
                 }
             }
         },
@@ -38,6 +51,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-sass');
     grunt.loadNpmTasks('grunt-contrib-uglify');
+    grunt.loadNpmTasks('grunt-contrib-watch');
 
     // Default task.
     grunt.registerTask('uglify-lib', ['jshint', 'uglify']);

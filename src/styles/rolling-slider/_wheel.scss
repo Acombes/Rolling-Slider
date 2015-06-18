@@ -1,0 +1,66 @@
+#{$containerClass} {
+    display: block;
+    height: $radius + $itemDim / 2;
+    position: relative;
+    overflow: hidden;
+
+    #{$itemClass} {
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        visibility: hidden;
+        pointer-events: none;
+        @include transform(rotate(-90deg) translateX(100px));
+        @include transition(transform .2s ease-in-out);
+
+        & > * {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: auto;
+            border-radius: 100%;
+            @include transform(translate(-50%, -50%));
+            @include transition(transform .2s ease-in-out);
+
+            -webkit-clip-path: circle($itemDim / 2);
+            clip-path: circle($itemDim / 2);
+        }
+
+        $step: (180deg - 2 * $angleOffset) / ($visibleItems - 1);
+        &:first-child {
+            $angle: 180deg - $angleOffset + $step;
+            visibility: visible;
+            @include transform(rotate($angle) translateX($radius));
+
+            & > * {
+                @include transform(translate(-50%, -50%) rotate(-$angle));
+            }
+        }
+
+        @for $i from 1 through $visibleItems {
+            $angle: (180deg - 2 * $angleOffset) - ($i - 1) * $step;
+            
+            &:nth-child(#{$i + 1}) {
+                visibility: visible;
+                pointer-events: auto;
+                @include transform(rotate($angleOffset + $angle) translateX($radius));
+
+                & > * {
+                    @include transform(translate(-50%, -50%) rotate(-$angleOffset - $angle));
+                }
+            }
+        }
+
+        &:nth-child(#{$visibleItems + 2}) {
+            $angle: $angleOffset - $step;
+            visibility: visible;
+            @include transform(rotate($angle) translateX($radius));
+
+            & > * {
+                @include transform(translate(-50%, -50%) rotate(-$angle));
+            }
+        }
+    }
+}
