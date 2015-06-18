@@ -1,0 +1,25 @@
+{
+  "name": "Rolling-Slider",
+  "version": "0.0.0",
+  "description": "POC for a rolling slider",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Acombes/Rolling-Slider.git"
+  },
+  "author": "Antoine COMBES",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Acombes/Rolling-Slider/issues"
+  },
+  "homepage": "https://github.com/Acombes/Rolling-Slider",
+  "dependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.11.2",
+    "grunt-contrib-sass": "^0.9.2",
+    "grunt-contrib-uglify": "^0.9.1"
+  }
+}
