@@ -3,16 +3,23 @@
  */
 (function ($) {
     $(document).ready(function() {
-        var slider = $('.rolling-slider');
+        window.slider = new RollingSlider('.rolling-slider', {
+            beforeRotation: function (items, direction) {
+                console.log('before ' + direction);
+            },
+            afterRotation: function (items, direction) {
+                console.log('after ' + direction);
+            }
+        });
 
         $('#prev').click(function (e) {
             e.preventDefault();
-            slider.children().eq(slider.children().length - 1).insertBefore(slider.children().eq(0))
+            slider.prev();
         });
 
         $('#next').click(function (e) {
             e.preventDefault();
-            slider.children().eq(0).insertAfter(slider.children().eq(slider.children().length - 1))
+            slider.next();
         });
     });
 })(jQuery);

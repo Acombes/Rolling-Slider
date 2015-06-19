@@ -12,7 +12,7 @@
         visibility: hidden;
         pointer-events: none;
         @include transform(rotate(-90deg) translateX(100px));
-        @include transition(transform .2s ease-in-out);
+        @include transition(transform $animationDuration ease-in-out);
 
         & > * {
             display: block;
@@ -22,7 +22,7 @@
             margin: auto;
             border-radius: 100%;
             @include transform(translate(-50%, -50%));
-            @include transition(transform .2s ease-in-out);
+            @include transition(transform $animationDuration ease-in-out);
 
             -webkit-clip-path: circle($itemDim / 2);
             clip-path: circle($itemDim / 2);

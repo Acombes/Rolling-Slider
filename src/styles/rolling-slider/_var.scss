@@ -1,9 +1,11 @@
 // Wheel Structure classes
 $containerClass: ".rolling-slider";
+$itemsContainerClass: ".items";
 $itemClass: ".item";
 $radius: 500px;
 $visibleItems: 9;
 $angleOffset: 10deg;
 
-// Item styling
+// Aesthetics
 $itemDim: 100px;
+$animationDuration: .2s

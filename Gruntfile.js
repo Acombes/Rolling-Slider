@@ -3,7 +3,16 @@ module.exports = function (grunt) {
     // Project configuration.
     grunt.initConfig({
         sass: {
-            build: {
+            'build-windows': {
+                options: {
+                    style: 'expanded',
+                    quiet: true
+                },
+                files: {
+                    'src/styles/rolling-slider.css': 'src/styles/rolling-slider/rolling-slider.scss'
+                }
+            },
+            'build-linux': {
                 options: {
                     sourcemap: 'none',
                     style: 'expanded',
@@ -43,7 +52,7 @@ module.exports = function (grunt) {
             }
         },
         jshint: {
-
+            src: ['src/scripts/*.js', '!src/scripts/*.min.js']
         }
     });
 
@@ -55,5 +64,6 @@ module.exports = function (grunt) {
 
     // Default task.
     grunt.registerTask('uglify-lib', ['jshint', 'uglify']);
-    grunt.registerTask('build', ['sass', 'uglify-lib']);
+    grunt.registerTask('build-windows', ['sass:build-windows', 'uglify-lib']);
+    grunt.registerTask('build-linux', ['sass:build-linux', 'uglify-lib']);
 };
