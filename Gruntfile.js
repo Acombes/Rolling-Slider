@@ -35,7 +35,6 @@ module.exports = function (grunt) {
             lib: {
                 files: {
                     'src/scripts/rolling-slider.min.js': 'src/scripts/rolling-slider.js',
-                    'src/scripts/rolling-slider-vanilla.min.js': 'src/scripts/rolling-slider-vanilla.js'
                 }
             }
         },
